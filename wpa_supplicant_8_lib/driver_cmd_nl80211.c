@@ -10,9 +10,15 @@
  *
  */
 
-#include <sys/cdefs.h>
-#include "hardware_legacy/driver_nl80211.h"
-#include "hardware_legacy/wifi.h"
+#include "includes.h"
+#include <sys/types.h>
+#include <fcntl.h>
+#include <net/if.h>
+
+#include "common.h"
+#include "linux_ioctl.h"
+
+#include "driver_nl80211.h"
 #include "wpa_supplicant_i.h"
 #include "config.h"
 #ifdef ANDROID
