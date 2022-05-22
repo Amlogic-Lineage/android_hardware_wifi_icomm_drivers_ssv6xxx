@@ -1,6 +1,6 @@
 PLATFORMS = ssv6x5x
 
-KBUILD_TOP := $(PWD)/hardware/wifi/icomm/drivers/ssv6xxx/ssv6x5x
+KBUILD_TOP := $(M)
 #KBUILD_TOP := /mnt/nfsroot/weiguang.ruan/o-amlogic-mr1/hardware/wifi/icomm/drivers/ssv6xxx/ssv6x5x
 include $(KBUILD_TOP)/$(PLATFORMS).cfg
 include $(KBUILD_TOP)/platform-config.mak
