@@ -32,7 +32,7 @@ KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
 SSV6X5X_CFLAGS := -I$(abspath $(_ssv6x5x_intermediates))/include
 
 
-$(_ssv6x5x_ko): $(INTERMEDIATES_KERNEL)
+$(_ssv6x5x_ko): $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/$(BOARD_KERNEL_IMAGE_NAME)
 	@mkdir -p $(dir $@)
 	@cp -R $(SSV6X5X_PATH)/* $(_ssv6x5x_intermediates)/
 	$(hide) +$(KERNEL_MAKE_CMD) $(PATH_OVERRIDE) $(KERNEL_MAKE_FLAGS) -C $(KERNEL_OUT) M=$(abspath $(_ssv6x5x_intermediates)) ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) $(KERNEL_CROSS_COMPILE) EXTRA_CFLAGS="$(SSV6X5X_CFLAGS)" $(SSV6X5X_CONFIGS) modules

@@ -32,7 +32,7 @@ _ssv6051_ko := $(_ssv6051_intermediates)/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
 KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
 SSV6051_CFLAGS := -I$(abspath $(_ssv6051_intermediates))/include
 
-$(_ssv6051_ko): $(INTERMEDIATES_KERNEL)
+$(_ssv6051_ko): $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/$(BOARD_KERNEL_IMAGE_NAME)
 	@mkdir -p $(dir $@)
 	@cp -R $(SSV6051_PATH)/* $(_ssv6051_intermediates)/
 	$(hide) +$(KERNEL_MAKE_CMD) $(PATH_OVERRIDE) $(KERNEL_MAKE_FLAGS) -C $(KERNEL_OUT) M=$(abspath $(_ssv6051_intermediates)) ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) $(KERNEL_CROSS_COMPILE) EXTRA_CFLAGS="$(SSV6051_CFLAGS)" $(SSV6051_CONFIGS) modules
